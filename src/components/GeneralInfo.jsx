@@ -4,13 +4,13 @@ function GeneralInfo() {
   return (
     <div className="general">
       <label htmlFor="name">
-        Name: <input type="text" id="name" />
+        Full Name <input type="text" id="name" />
       </label>
       <label htmlFor="email">
-        Email: <input type="email" id="email" />
+        Email Address <input type="email" id="email" />
       </label>
       <label htmlFor="phone">
-        Phone: <input type="tel" id="phone" />
+        Phone Number <input type="tel" id="phone" />
       </label>
     </div>
   );
