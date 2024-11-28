@@ -10,12 +10,13 @@ function EducationInfo() {
         Course of Study <input type="text" id="course" />
       </label>
       <label htmlFor="degree">
-        Degree Type (B.Sc., PhD., OND, HND, etc.){" "}
+        Degree Type
         <input type="text" id="degree" />
       </label>
       <label htmlFor="graduation">
         Year of Graduation <input type="text" id="graduation" />
       </label>
+      <button>Remove</button>
     </div>
   );
 }

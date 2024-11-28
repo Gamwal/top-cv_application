@@ -1,6 +1,8 @@
+// import { useState } from "react";
 import "../styles/GeneralInfo.css";
 
 function GeneralInfo() {
+  // const [state, setState] = useState(0);
   return (
     <div className="general">
       <label htmlFor="name">

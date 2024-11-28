@@ -18,6 +18,7 @@ function ExperienceInfo() {
       <label htmlFor="end-date">
         End Date <input type="text" id="end-date" />
       </label>
+      <button>Remove</button>
     </div>
   );
 }
