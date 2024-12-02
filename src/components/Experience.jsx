@@ -71,7 +71,7 @@ function ExperienceInfo({ id, data, onRemove, onUpdate }) {
   return (
     <div className="experience">
       <label htmlFor={`company-${id}`}>
-        Company Name{" "}
+        Company Name
         <input
           type="text"
           id={`company-${id}`}
@@ -80,7 +80,7 @@ function ExperienceInfo({ id, data, onRemove, onUpdate }) {
         />
       </label>
       <label htmlFor={`position-${id}`}>
-        Position Title{" "}
+        Position Title
         <input
           type="text"
           id={`position-${id}`}
@@ -89,7 +89,7 @@ function ExperienceInfo({ id, data, onRemove, onUpdate }) {
         />
       </label>
       <label htmlFor={`duties-${id}`}>
-        Responsibilities:{" "}
+        Responsibilities:
         <textarea
           id={`duties-${id}`}
           value={data.duties || ""}
@@ -106,7 +106,7 @@ function ExperienceInfo({ id, data, onRemove, onUpdate }) {
         />
       </label>
       <label htmlFor={`end-date-${id}`}>
-        End Date{" "}
+        End Date
         <input
           type="date"
           id={`end-date-${id}`}
