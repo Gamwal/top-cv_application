@@ -24,8 +24,12 @@ createRoot(document.getElementById("root")).render(
           </div>
 
           <div id="form-buttons">
-            <button type="button">Edit</button>
-            <button type="submit">Submit</button>
+            <button type="button" className="update-button">
+              Update
+            </button>
+            <button type="button" className="download-button">
+              Download
+            </button>
           </div>
         </form>
       </div>

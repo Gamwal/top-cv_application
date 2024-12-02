@@ -58,8 +58,12 @@ function ExperienceInfoSection() {
               onUpdate={handleUpdate}
             />
           ))}
-          <button type="button" onClick={handleAddButton}>
-            ADD
+          <button
+            type="button"
+            className="add-button"
+            onClick={handleAddButton}
+          >
+            Add
           </button>
         </>
       )}
@@ -114,7 +118,11 @@ function ExperienceInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "end-date", e.target.value)}
         />
       </label>
-      <button type="button" onClick={() => onRemove(id)}>
+      <button
+        type="button"
+        className="remove-button"
+        onClick={() => onRemove(id)}
+      >
         Remove
       </button>
     </div>

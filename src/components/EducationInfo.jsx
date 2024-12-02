@@ -58,8 +58,12 @@ function EducationInfoSection() {
               onUpdate={handleUpdate}
             />
           ))}
-          <button type="button" onClick={handleAddButton}>
-            ADD
+          <button
+            type="button"
+            className="add-button"
+            onClick={handleAddButton}
+          >
+            Add
           </button>
         </>
       )}
@@ -106,7 +110,11 @@ function EducationInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "graduation", e.target.value)}
         />
       </label>
-      <button type="button" onClick={() => onRemove(id)}>
+      <button
+        type="button"
+        className="remove-button"
+        onClick={() => onRemove(id)}
+      >
         Remove
       </button>
     </div>
