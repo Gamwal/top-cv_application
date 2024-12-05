@@ -27,12 +27,13 @@ function ExperienceInfoSection() {
   }
 
   function handleUpdate(id, field, value) {
-    setSections((prevSections) =>
-      prevSections.map((section) =>
-        section.id === id
-          ? { ...section, data: { ...section.data, [field]: value } }
-          : section
-      )
+    setSections(
+      (prevSections) =>
+        (prevSections = prevSections.map((section) =>
+          section.id === id
+            ? { ...section, data: { ...section.data, [field]: value } }
+            : section
+        ))
     );
   }
 

@@ -152,3 +152,7 @@ textarea {
 .update-button {
   background-color: rgb(67, 0, 84);
 }
+
+#document-pane {
+  padding: 4rem;
+}

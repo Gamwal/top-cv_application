@@ -5,6 +5,10 @@ import PersonalInfoSection from "./components/GeneralInfo";
 import EducationInfoSection from "./components/EducationInfo";
 import ExperienceInfoSection from "./components/Experience";
 
+function handleUpdate() {}
+
+function handleDownload() {}
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <h1>CV Builder</h1>
@@ -24,17 +28,29 @@ createRoot(document.getElementById("root")).render(
           </div>
 
           <div id="form-buttons">
-            <button type="button" className="update-button">
+            <button
+              type="button"
+              className="update-button"
+              onClick={handleUpdate}
+            >
               Update
             </button>
-            <button type="button" className="download-button">
+            <button
+              type="button"
+              className="download-button"
+              onClick={handleDownload}
+            >
               Download
             </button>
           </div>
         </form>
       </div>
       <div>
-        <div id="document-pane"></div>
+        <div id="document-pane">
+          <div id="personal-info"></div>
+          <div id="experience-info"></div>
+          <div id="education-info"></div>
+        </div>
       </div>
     </div>
   </StrictMode>
