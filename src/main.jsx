@@ -4,6 +4,7 @@ import "./index.css";
 import PersonalInfoSection from "./components/GeneralInfo";
 import EducationInfoSection from "./components/EducationInfo";
 import ExperienceInfoSection from "./components/Experience";
+import App from "./components/PdfRenderer";
 
 function handleUpdate() {}
 
@@ -45,12 +46,8 @@ createRoot(document.getElementById("root")).render(
           </div>
         </form>
       </div>
-      <div>
-        <div id="document-pane">
-          <div id="personal-info"></div>
-          <div id="experience-info"></div>
-          <div id="education-info"></div>
-        </div>
+      <div id="document-pane">
+        <App />
       </div>
     </div>
   </StrictMode>

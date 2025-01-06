@@ -61,6 +61,15 @@ function GeneralInfo({ data, onUpdate }) {
           onChange={(e) => onUpdate("phone", e.target.value)}
         />
       </label>
+      <label htmlFor="phone">
+        Role{" "}
+        <input
+          type="text"
+          id="role"
+          value={data.role || ""}
+          onChange={(e) => onUpdate("role", e.target.value)}
+        />
+      </label>
     </div>
   );
 }

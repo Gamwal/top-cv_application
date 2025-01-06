@@ -107,6 +107,7 @@ button {
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
   background-color: white;
   aspect-ratio: 1 / 1.414;
+  /* padding: 2rem; */
 }
 
 .toggle-button {
@@ -151,8 +152,4 @@ textarea {
 
 .update-button {
   background-color: rgb(67, 0, 84);
-}
-
-#document-pane {
-  padding: 4rem;
 }
