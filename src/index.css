@@ -49,7 +49,10 @@ form {
 
 .general,
 .education,
-.experience {
+.experience,
+.project,
+.skill,
+.achievement {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -60,7 +63,10 @@ form {
 
 #general-section,
 #education-section,
-#experience-section {
+#experience-section,
+#project-section,
+#skill-section,
+#achievement-section {
   padding: 1rem 1rem;
   border-radius: 10px;
   display: flex;
@@ -105,9 +111,9 @@ button {
 #document-pane {
   width: 100%;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: white;
-  aspect-ratio: 1 / 1.414;
-  /* padding: 2rem; */
+  aspect-ratio: 1 / 1.416;
+  max-height: 1123px;
+  max-width: 793px;
 }
 
 .toggle-button {

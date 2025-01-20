@@ -3,16 +3,15 @@ import Icon from "@mdi/react";
 import { mdiChevronDown, mdiChevronUp, mdiAccount } from "@mdi/js";
 import "../styles/GeneralInfo.css";
 
-function PersonalInfoSection() {
+function PersonalInfoSection({ value = [], onUpdate }) {
   const [toggled, setToggled] = useState(false);
-  const [data, setData] = useState({});
 
   function handleClick() {
     setToggled((prevToggled) => !prevToggled);
   }
 
   function handleUpdate(field, value) {
-    setData((prevData) => ({ ...prevData, [field]: value }));
+    onUpdate((prevData) => ({ ...prevData, [field]: value }));
   }
 
   return (
@@ -26,7 +25,7 @@ function PersonalInfoSection() {
           <Icon path={toggled ? mdiChevronUp : mdiChevronDown} size={1} />
         </button>
       </div>
-      {toggled && <GeneralInfo data={data} onUpdate={handleUpdate} />}
+      {toggled && <GeneralInfo data={value} onUpdate={handleUpdate} />}
     </>
   );
 }
@@ -61,13 +60,22 @@ function GeneralInfo({ data, onUpdate }) {
           onChange={(e) => onUpdate("phone", e.target.value)}
         />
       </label>
-      <label htmlFor="phone">
-        Role{" "}
+      <label htmlFor="role">
+        Description{" "}
         <input
           type="text"
           id="role"
           value={data.role || ""}
           onChange={(e) => onUpdate("role", e.target.value)}
+        />
+      </label>
+      <label htmlFor="linkedin">
+        LinkedIn{" "}
+        <input
+          type="text"
+          id="linkedin"
+          value={data.linkedin || ""}
+          onChange={(e) => onUpdate("linkedin", e.target.value)}
         />
       </label>
     </div>

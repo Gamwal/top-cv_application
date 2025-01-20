@@ -1,49 +1,98 @@
-import {
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  PDFViewer,
-} from "@react-pdf/renderer";
+import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 
 // Create styles
 const styles = StyleSheet.create({
   page: {
     flexGrow: 1,
     flexDirection: "column",
-    // backgroundColor: "#E4E4E4",
+    padding: 20,
+  },
+  heading: {
+    alignItems: "center",
+    fontSize: 12,
   },
   section: {
     margin: 10,
-    padding: 10,
-    flexGrow: 1,
+    fontSize: 12,
+  },
+  name: {
+    fontSize: 20,
   },
 });
 
 // Create Document Component
-function MyDocument() {
+function MyDocument({ data }) {
+  const {
+    personalData,
+    experienceData,
+    educationData,
+    projectData,
+    skillData,
+    achievementData,
+  } = data;
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-        <View style={styles.section}>
-          <Text>Name</Text>
-          <Text>Role</Text>
+        <View style={styles.heading}>
+          <Text style={styles.name}>{personalData?.name || "Your Name"}</Text>
+          <Text>{personalData?.role || "Description"}</Text>
+          <Text>
+            {personalData?.email || "Email"} | {personalData?.phone || "Phone"}{" "}
+            | {personalData?.linkedin || "LinkedIn"}
+          </Text>
         </View>
         <View style={styles.section}>
-          <Text>Section #2</Text>
+          <Text>WORK EXPERIENCE</Text>
+          {experienceData.map((experience, index) => (
+            <View key={index}>
+              <Text>
+                {experience.data?.company || "Company Name"}
+                <Text>
+                  {experience.data?.["start-date"] || "Start Date"} -{" "}
+                  {experience.data?.["end-date"] || "End Date"}{" "}
+                </Text>
+              </Text>
+              <Text>{experience.data?.position || "Position"} </Text>
+              <Text>{experience.data?.duties || "Responsibilities"} </Text>
+              {/* <Text>{"\n"} </Text> */}
+            </View>
+          ))}
+        </View>
+        <View style={styles.section}>
+          <Text>EDUCATION</Text>
+          {educationData.map((education, index) => (
+            <View key={index}>
+              <Text>
+                {education.data?.school || "Company Name"}
+                <Text>{education.data?.graduation || "Graduation Year"}</Text>
+              </Text>
+              <Text>{education.data?.course || "Course"} </Text>
+              <Text>{education.data?.degree || "Degree Class"} </Text>
+              {/* <Text>{"\n"} </Text> */}
+            </View>
+          ))}
+        </View>
+        <View style={styles.section}>
+          <Text>PROJECTS</Text>
+        </View>
+        <View style={styles.section}>
+          <Text>SKILLS</Text>
+        </View>
+        <View style={styles.section}>
+          <Text>ACHIEVEMENTS</Text>
         </View>
       </Page>
     </Document>
   );
 }
 
-function App() {
-  return (
-    <PDFViewer width="100%" height="100%" border="none">
-      <MyDocument />
-    </PDFViewer>
-  );
-}
+// function App() {
+//   return (
+//     <PDFViewer width="100%" height="100%" border="none" overflow="none">
+//       <MyDocument />
+//     </PDFViewer>
+//   );
+// }
 
-export default App;
+export default MyDocument;

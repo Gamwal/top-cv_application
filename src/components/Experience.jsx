@@ -3,37 +3,29 @@ import Icon from "@mdi/react";
 import { mdiChevronDown, mdiChevronUp, mdiBriefcase } from "@mdi/js";
 import { useState } from "react";
 
-let nextId = 1;
-
-function ExperienceInfoSection() {
+function ExperienceInfoSection({ value = [], onUpdate }) {
   const [toggled, setToggled] = useState(false);
-  const [sections, setSections] = useState([{ id: 1, data: {} }]);
 
   function handleToggle() {
     setToggled((prevToggled) => !prevToggled);
   }
 
   function handleAddButton() {
-    setSections((prevSections) => [
-      ...prevSections,
-      { id: nextId++, data: {} },
-    ]);
+    const newSection = { id: Date.now(), data: {} };
+    onUpdate([...value, newSection]);
   }
 
   function handleRemoveButton(id) {
-    setSections((prevSections) =>
-      prevSections.filter((section) => section.id !== id)
-    );
+    onUpdate(value.filter((section) => section.id !== id));
   }
 
-  function handleUpdate(id, field, value) {
-    setSections(
-      (prevSections) =>
-        (prevSections = prevSections.map((section) =>
-          section.id === id
-            ? { ...section, data: { ...section.data, [field]: value } }
-            : section
-        ))
+  function handleFieldUpdate(id, field, fieldValue) {
+    onUpdate(
+      value.map((section) =>
+        section.id === id
+          ? { ...section, data: { ...section.data, [field]: fieldValue } }
+          : section
+      )
     );
   }
 
@@ -50,13 +42,13 @@ function ExperienceInfoSection() {
       </div>
       {toggled && (
         <>
-          {sections.map((section) => (
+          {value.map((section) => (
             <ExperienceInfo
               key={section.id}
               id={section.id}
               data={section.data}
               onRemove={handleRemoveButton}
-              onUpdate={handleUpdate}
+              onUpdate={handleFieldUpdate}
             />
           ))}
           <button
@@ -104,7 +96,7 @@ function ExperienceInfo({ id, data, onRemove, onUpdate }) {
       <label htmlFor={`start-date-${id}`}>
         Start Date{" "}
         <input
-          type="date"
+          type="month"
           id={`start-date-${id}`}
           value={data["start-date"] || ""}
           onChange={(e) => onUpdate(id, "start-date", e.target.value)}
@@ -113,7 +105,7 @@ function ExperienceInfo({ id, data, onRemove, onUpdate }) {
       <label htmlFor={`end-date-${id}`}>
         End Date
         <input
-          type="date"
+          type="month"
           id={`end-date-${id}`}
           value={data["end-date"] || ""}
           onChange={(e) => onUpdate(id, "end-date", e.target.value)}

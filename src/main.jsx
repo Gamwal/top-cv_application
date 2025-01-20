@@ -1,54 +1,117 @@
-import { StrictMode } from "react";
+import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
+import { PDFViewer } from "@react-pdf/renderer";
 import "./index.css";
 import PersonalInfoSection from "./components/GeneralInfo";
 import EducationInfoSection from "./components/EducationInfo";
 import ExperienceInfoSection from "./components/Experience";
-import App from "./components/PdfRenderer";
+import ProjectInfoSection from "./components/Projects";
+import SkillInfoSection from "./components/Skills";
+import AchievementInfoSection from "./components/Achievements";
+import MyDocument from "./components/PdfRenderer";
 
-function handleUpdate() {}
+function CVBuilder() {
+  const [personalData, setPersonalData] = useState([]);
+  const [experienceData, setExperienceData] = useState([]);
+  const [educationData, setEducationData] = useState([]);
+  const [projectData, setProjectData] = useState([]);
+  const [skillData, setSkillData] = useState([]);
+  const [achievementData, setAchievementData] = useState([]);
 
-function handleDownload() {}
+  const [documentData, setDocumentData] = useState({
+    personalData,
+    experienceData,
+    educationData,
+    projectData,
+    skillData,
+    achievementData,
+  });
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <h1>CV Builder</h1>
-    <div id="main">
-      <div id="input-pane">
-        <form action="">
-          <div id="general-section">
-            <PersonalInfoSection />
-          </div>
+  function handleUpdate() {
+    // experienceData.map((experience) => console.log(experience.data.company));
+    setDocumentData({
+      personalData,
+      experienceData,
+      educationData,
+      projectData,
+      skillData,
+      achievementData,
+    });
+  }
 
-          <div id="education-section">
-            <EducationInfoSection />
-          </div>
+  function handleDownload() {}
 
-          <div id="experience-section">
-            <ExperienceInfoSection />
-          </div>
+  return (
+    <StrictMode>
+      <h1>CV Builder</h1>
+      <div id="main">
+        <div id="input-pane">
+          <form action="">
+            <div id="general-section">
+              <PersonalInfoSection
+                value={personalData}
+                onUpdate={setPersonalData}
+              />
+            </div>
 
-          <div id="form-buttons">
-            <button
-              type="button"
-              className="update-button"
-              onClick={handleUpdate}
-            >
-              Update
-            </button>
-            <button
-              type="button"
-              className="download-button"
-              onClick={handleDownload}
-            >
-              Download
-            </button>
-          </div>
-        </form>
+            <div id="experience-section">
+              <ExperienceInfoSection
+                value={experienceData}
+                onUpdate={setExperienceData}
+              />
+            </div>
+
+            <div id="education-section">
+              <EducationInfoSection
+                value={educationData}
+                onUpdate={setEducationData}
+              />
+            </div>
+
+            <div id="project-section">
+              <ProjectInfoSection
+                value={projectData}
+                onUpdate={setProjectData}
+              />
+            </div>
+
+            <div id="skill-section">
+              <SkillInfoSection value={skillData} onUpdate={setSkillData} />
+            </div>
+
+            <div id="achievement-section">
+              <AchievementInfoSection
+                value={achievementData}
+                onUpdate={setAchievementData}
+              />
+            </div>
+
+            <div id="form-buttons">
+              <button
+                type="button"
+                className="update-button"
+                onClick={handleUpdate}
+              >
+                Update
+              </button>
+              <button
+                type="button"
+                className="download-button"
+                onClick={handleDownload}
+              >
+                Download
+              </button>
+            </div>
+          </form>
+        </div>
+        <div id="document-pane">
+          <PDFViewer width="100%" height="100%" border="none" overflow="none">
+            <MyDocument data={documentData} />
+          </PDFViewer>
+        </div>
       </div>
-      <div id="document-pane">
-        <App />
-      </div>
-    </div>
-  </StrictMode>
-);
+    </StrictMode>
+  );
+}
+
+createRoot(document.getElementById("root")).render(<CVBuilder />);

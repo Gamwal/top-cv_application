@@ -1,9 +1,9 @@
 import "../styles/EducationInfo.css";
 import { useState } from "react";
 import Icon from "@mdi/react";
-import { mdiChevronDown, mdiChevronUp, mdiSchool } from "@mdi/js";
+import { mdiChevronDown, mdiChevronUp, mdiPaletteSwatch } from "@mdi/js";
 
-function EducationInfoSection({ value = [], onUpdate }) {
+function SkillInfoSection({ value = [], onUpdate }) {
   const [toggled, setToggled] = useState(false);
 
   function handleToggle() {
@@ -11,8 +11,8 @@ function EducationInfoSection({ value = [], onUpdate }) {
   }
 
   function handleAddButton() {
-    const newSection = { id: Date.now(), data: {} };
-    onUpdate([...value, newSection]);
+    const newProject = { id: Date.now(), data: {} };
+    onUpdate([...value, newProject]);
   }
 
   function handleRemoveButton(id) {
@@ -33,8 +33,8 @@ function EducationInfoSection({ value = [], onUpdate }) {
     <>
       <div className="section-head-I">
         <div className="section-head-II">
-          <Icon path={mdiSchool} size={1} />
-          <h3>Education</h3>
+          <Icon path={mdiPaletteSwatch} size={1} />
+          <h3>Skills</h3>
         </div>
         <button type="button" className="toggle-button" onClick={handleToggle}>
           <Icon path={toggled ? mdiChevronUp : mdiChevronDown} size={1} />
@@ -43,7 +43,7 @@ function EducationInfoSection({ value = [], onUpdate }) {
       {toggled && (
         <>
           {value.map((section) => (
-            <EducationInfo
+            <SkillInfo
               key={section.id}
               id={section.id}
               data={section.data}
@@ -64,14 +64,14 @@ function EducationInfoSection({ value = [], onUpdate }) {
   );
 }
 
-function EducationInfo({ id, data, onRemove, onUpdate }) {
+function SkillInfo({ id, data, onRemove, onUpdate }) {
   return (
-    <div className="education">
+    <div className="skill">
       <label htmlFor={`school-${id}`}>
-        School Name
+        Project Name
         <input
           type="text"
-          id={`school-${id}`}
+          id={`name-${id}`}
           value={data.school || ""}
           onChange={(e) => onUpdate(id, "school", e.target.value)}
         />
@@ -114,4 +114,4 @@ function EducationInfo({ id, data, onRemove, onUpdate }) {
   );
 }
 
-export default EducationInfoSection;
+export default SkillInfoSection;
