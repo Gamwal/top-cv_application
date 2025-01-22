@@ -28,7 +28,7 @@ function CVBuilder() {
   });
 
   function handleUpdate() {
-    // experienceData.map((experience) => console.log(experience.data.company));
+    console.log(achievementData);
     setDocumentData({
       personalData,
       experienceData,

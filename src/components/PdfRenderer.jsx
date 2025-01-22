@@ -55,7 +55,6 @@ function MyDocument({ data }) {
               </Text>
               <Text>{experience.data?.position || "Position"} </Text>
               <Text>{experience.data?.duties || "Responsibilities"} </Text>
-              {/* <Text>{"\n"} </Text> */}
             </View>
           ))}
         </View>
@@ -64,35 +63,48 @@ function MyDocument({ data }) {
           {educationData.map((education, index) => (
             <View key={index}>
               <Text>
-                {education.data?.school || "Company Name"}
+                {education.data?.school || "School Name"}
                 <Text>{education.data?.graduation || "Graduation Year"}</Text>
               </Text>
               <Text>{education.data?.course || "Course"} </Text>
               <Text>{education.data?.degree || "Degree Class"} </Text>
-              {/* <Text>{"\n"} </Text> */}
             </View>
           ))}
         </View>
         <View style={styles.section}>
           <Text>PROJECTS</Text>
+          {projectData.map((project, index) => (
+            <View key={index}>
+              <Text>
+                {project.data?.name || "Project Name"}
+                {project.data?.completion || "Completion Date"}
+              </Text>
+              <Text>{project.data?.details || "Project Details"}</Text>
+            </View>
+          ))}
         </View>
         <View style={styles.section}>
           <Text>SKILLS</Text>
+          {skillData.map((skill, index) => (
+            <View key={index}>
+              <Text>{skill.data?.skill || "Skill"}</Text>
+            </View>
+          ))}
         </View>
         <View style={styles.section}>
           <Text>ACHIEVEMENTS</Text>
+          {achievementData.map((achievement, index) => (
+            <View key={index}>
+              <Text>
+                {achievement.data?.name || "Name"}
+                {achievement.data?.date || "Date"}
+              </Text>
+            </View>
+          ))}
         </View>
       </Page>
     </Document>
   );
 }
-
-// function App() {
-//   return (
-//     <PDFViewer width="100%" height="100%" border="none" overflow="none">
-//       <MyDocument />
-//     </PDFViewer>
-//   );
-// }
 
 export default MyDocument;

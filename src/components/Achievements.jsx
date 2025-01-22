@@ -11,8 +11,8 @@ function AchievementInfoSection({ value = [], onUpdate }) {
   }
 
   function handleAddButton() {
-    const newProject = { id: Date.now(), data: {} };
-    onUpdate([...value, newProject]);
+    const newAchievement = { id: Date.now(), data: {} };
+    onUpdate([...value, newAchievement]);
   }
 
   function handleRemoveButton(id) {
@@ -68,39 +68,21 @@ function AchievementInfo({ id, data, onRemove, onUpdate }) {
   return (
     <div className="education">
       <label htmlFor={`school-${id}`}>
-        Project Name
+        Achievement
         <input
           type="text"
           id={`name-${id}`}
-          value={data.school || ""}
-          onChange={(e) => onUpdate(id, "school", e.target.value)}
+          value={data.name || ""}
+          onChange={(e) => onUpdate(id, "name", e.target.value)}
         />
       </label>
       <label htmlFor={`course-${id}`}>
-        Course of Study
-        <input
-          type="text"
-          id={`course-${id}`}
-          value={data.course || ""}
-          onChange={(e) => onUpdate(id, "course", e.target.value)}
-        />
-      </label>
-      <label htmlFor={`degree-${id}`}>
-        Degree Type
-        <input
-          type="text"
-          id={`degree-${id}`}
-          value={data.degree || ""}
-          onChange={(e) => onUpdate(id, "degree", e.target.value)}
-        />
-      </label>
-      <label htmlFor={`graduation-${id}`}>
-        Graduation
+        Date
         <input
           type="month"
-          id={`graduation-${id}`}
-          value={data.graduation || ""}
-          onChange={(e) => onUpdate(id, "graduation", e.target.value)}
+          id={`date-${id}`}
+          value={data.date || ""}
+          onChange={(e) => onUpdate(id, "date", e.target.value)}
         />
       </label>
       <button

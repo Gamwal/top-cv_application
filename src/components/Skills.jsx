@@ -11,8 +11,8 @@ function SkillInfoSection({ value = [], onUpdate }) {
   }
 
   function handleAddButton() {
-    const newProject = { id: Date.now(), data: {} };
-    onUpdate([...value, newProject]);
+    const newSkill = { id: Date.now(), data: {} };
+    onUpdate([...value, newSkill]);
   }
 
   function handleRemoveButton(id) {
@@ -67,40 +67,13 @@ function SkillInfoSection({ value = [], onUpdate }) {
 function SkillInfo({ id, data, onRemove, onUpdate }) {
   return (
     <div className="skill">
-      <label htmlFor={`school-${id}`}>
-        Project Name
+      <label htmlFor={`skill-${id}`}>
+        Skill
         <input
           type="text"
-          id={`name-${id}`}
-          value={data.school || ""}
-          onChange={(e) => onUpdate(id, "school", e.target.value)}
-        />
-      </label>
-      <label htmlFor={`course-${id}`}>
-        Course of Study
-        <input
-          type="text"
-          id={`course-${id}`}
-          value={data.course || ""}
-          onChange={(e) => onUpdate(id, "course", e.target.value)}
-        />
-      </label>
-      <label htmlFor={`degree-${id}`}>
-        Degree Type
-        <input
-          type="text"
-          id={`degree-${id}`}
-          value={data.degree || ""}
-          onChange={(e) => onUpdate(id, "degree", e.target.value)}
-        />
-      </label>
-      <label htmlFor={`graduation-${id}`}>
-        Graduation
-        <input
-          type="month"
-          id={`graduation-${id}`}
-          value={data.graduation || ""}
-          onChange={(e) => onUpdate(id, "graduation", e.target.value)}
+          id={`skill-${id}`}
+          value={data.skill || ""}
+          onChange={(e) => onUpdate(id, "skill", e.target.value)}
         />
       </label>
       <button

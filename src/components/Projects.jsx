@@ -73,34 +73,22 @@ function ProjectInfo({ id, data, onRemove, onUpdate }) {
           type="text"
           id={`name-${id}`}
           value={data.name || ""}
-          onChange={(e) => onUpdate(id, "school", e.target.value)}
+          onChange={(e) => onUpdate(id, "name", e.target.value)}
+        />
+        <label htmlFor={`deatils-${id}`}>Details:</label>
+        <textarea
+          id={`details-${id}`}
+          value={data.details || ""}
+          onChange={(e) => onUpdate(id, "details", e.target.value)}
         />
       </label>
-      <label htmlFor={`course-${id}`}>
-        Course of Study
-        <input
-          type="text"
-          id={`course-${id}`}
-          value={data.course || ""}
-          onChange={(e) => onUpdate(id, "course", e.target.value)}
-        />
-      </label>
-      <label htmlFor={`degree-${id}`}>
-        Degree Type
-        <input
-          type="text"
-          id={`degree-${id}`}
-          value={data.degree || ""}
-          onChange={(e) => onUpdate(id, "degree", e.target.value)}
-        />
-      </label>
-      <label htmlFor={`graduation-${id}`}>
-        Graduation
+      <label htmlFor={`completed-${id}`}>
+        Date of Completion
         <input
           type="month"
-          id={`graduation-${id}`}
-          value={data.graduation || ""}
-          onChange={(e) => onUpdate(id, "graduation", e.target.value)}
+          id={`completion-${id}`}
+          value={data.completion || ""}
+          onChange={(e) => onUpdate(id, "completion", e.target.value)}
         />
       </label>
       <button
