@@ -1,4 +1,3 @@
-import "../styles/ExperienceInfo.css";
 import Icon from "@mdi/react";
 import { mdiChevronDown, mdiChevronUp, mdiBriefcase } from "@mdi/js";
 import { useState } from "react";

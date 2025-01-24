@@ -1,4 +1,3 @@
-import "../styles/EducationInfo.css";
 import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiChevronDown, mdiChevronUp, mdiSchool } from "@mdi/js";

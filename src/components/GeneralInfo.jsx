@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiChevronDown, mdiChevronUp, mdiAccount } from "@mdi/js";
-import "../styles/GeneralInfo.css";
 
 function PersonalInfoSection({ value = [], onUpdate }) {
   const [toggled, setToggled] = useState(false);
