@@ -28,7 +28,6 @@ function CVBuilder() {
   });
 
   function handleUpdate() {
-    console.log(achievementData);
     setDocumentData({
       personalData,
       experienceData,

@@ -76,6 +76,7 @@ function SkillInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "skill", e.target.value)}
         />
       </label>
+
       <button
         type="button"
         className="remove-button"

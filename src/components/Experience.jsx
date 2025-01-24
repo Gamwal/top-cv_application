@@ -76,6 +76,7 @@ function ExperienceInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "company", e.target.value)}
         />
       </label>
+
       <label htmlFor={`position-${id}`}>
         Position Title
         <input
@@ -85,6 +86,7 @@ function ExperienceInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "position", e.target.value)}
         />
       </label>
+
       <label htmlFor={`duties-${id}`}>
         Responsibilities:
         <textarea
@@ -93,24 +95,27 @@ function ExperienceInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "duties", e.target.value)}
         />
       </label>
-      <label htmlFor={`start-date-${id}`}>
+
+      <label htmlFor={`startDate-${id}`}>
         Start Date{" "}
         <input
           type="month"
-          id={`start-date-${id}`}
-          value={data["start-date"] || ""}
-          onChange={(e) => onUpdate(id, "start-date", e.target.value)}
+          id={`startDate-${id}`}
+          value={data["startDate"] || ""}
+          onChange={(e) => onUpdate(id, "startDate", e.target.value)}
         />
       </label>
-      <label htmlFor={`end-date-${id}`}>
+
+      <label htmlFor={`endDate-${id}`}>
         End Date
         <input
           type="month"
-          id={`end-date-${id}`}
-          value={data["end-date"] || ""}
-          onChange={(e) => onUpdate(id, "end-date", e.target.value)}
+          id={`endDate-${id}`}
+          value={data["endDate"] || ""}
+          onChange={(e) => onUpdate(id, "endDate", e.target.value)}
         />
       </label>
+
       <button
         type="button"
         className="remove-button"

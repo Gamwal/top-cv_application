@@ -75,13 +75,17 @@ function ProjectInfo({ id, data, onRemove, onUpdate }) {
           value={data.name || ""}
           onChange={(e) => onUpdate(id, "name", e.target.value)}
         />
-        <label htmlFor={`deatils-${id}`}>Details:</label>
+      </label>
+
+      <label htmlFor={`deatils-${id}`}>
+        Details:
         <textarea
           id={`details-${id}`}
           value={data.details || ""}
           onChange={(e) => onUpdate(id, "details", e.target.value)}
         />
       </label>
+
       <label htmlFor={`completed-${id}`}>
         Date of Completion
         <input
@@ -91,6 +95,7 @@ function ProjectInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "completion", e.target.value)}
         />
       </label>
+
       <button
         type="button"
         className="remove-button"

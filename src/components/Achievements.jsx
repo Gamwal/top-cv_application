@@ -76,6 +76,7 @@ function AchievementInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "name", e.target.value)}
         />
       </label>
+
       <label htmlFor={`course-${id}`}>
         Date
         <input
@@ -85,6 +86,7 @@ function AchievementInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "date", e.target.value)}
         />
       </label>
+
       <button
         type="button"
         className="remove-button"

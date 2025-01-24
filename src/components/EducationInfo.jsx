@@ -76,6 +76,7 @@ function EducationInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "school", e.target.value)}
         />
       </label>
+
       <label htmlFor={`course-${id}`}>
         Course of Study
         <input
@@ -85,15 +86,16 @@ function EducationInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "course", e.target.value)}
         />
       </label>
-      <label htmlFor={`degree-${id}`}>
-        Degree Type
-        <input
-          type="text"
-          id={`degree-${id}`}
-          value={data.degree || ""}
-          onChange={(e) => onUpdate(id, "degree", e.target.value)}
+
+      <label htmlFor={`details-${id}`}>
+        Degree Details
+        <textarea
+          id={`details-${id}`}
+          value={data.details || ""}
+          onChange={(e) => onUpdate(id, "details", e.target.value)}
         />
       </label>
+
       <label htmlFor={`graduation-${id}`}>
         Graduation
         <input
@@ -103,6 +105,7 @@ function EducationInfo({ id, data, onRemove, onUpdate }) {
           onChange={(e) => onUpdate(id, "graduation", e.target.value)}
         />
       </label>
+
       <button
         type="button"
         className="remove-button"

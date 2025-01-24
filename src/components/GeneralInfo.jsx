@@ -33,15 +33,26 @@ function PersonalInfoSection({ value = [], onUpdate }) {
 function GeneralInfo({ data, onUpdate }) {
   return (
     <div className="general">
-      <label htmlFor="name">
-        Full Name{" "}
+      <label htmlFor="firstName">
+        First Name{" "}
         <input
           type="text"
-          id="name"
-          value={data.name || ""}
-          onChange={(e) => onUpdate("name", e.target.value)}
+          id="firstName"
+          value={data.firstName || ""}
+          onChange={(e) => onUpdate("firstName", e.target.value)}
         />
       </label>
+
+      <label htmlFor="lastName">
+        Last Name{" "}
+        <input
+          type="text"
+          id="lastName"
+          value={data.lastName || ""}
+          onChange={(e) => onUpdate("lastName", e.target.value)}
+        />
+      </label>
+
       <label htmlFor="email">
         Email Address{" "}
         <input
@@ -51,6 +62,7 @@ function GeneralInfo({ data, onUpdate }) {
           onChange={(e) => onUpdate("email", e.target.value)}
         />
       </label>
+
       <label htmlFor="phone">
         Phone Number{" "}
         <input
@@ -60,6 +72,7 @@ function GeneralInfo({ data, onUpdate }) {
           onChange={(e) => onUpdate("phone", e.target.value)}
         />
       </label>
+
       <label htmlFor="role">
         Description{" "}
         <input
@@ -69,8 +82,9 @@ function GeneralInfo({ data, onUpdate }) {
           onChange={(e) => onUpdate("role", e.target.value)}
         />
       </label>
+
       <label htmlFor="linkedin">
-        LinkedIn{" "}
+        LinkedIn Profile{" "}
         <input
           type="text"
           id="linkedin"

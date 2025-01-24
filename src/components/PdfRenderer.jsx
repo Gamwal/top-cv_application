@@ -12,11 +12,42 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   section: {
-    margin: 10,
+    marginLeft: 20,
+    marginRight: 20,
     fontSize: 12,
   },
   name: {
     fontSize: 20,
+  },
+  sectionHeader: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "blue",
+    marginTop: 10,
+    marginBottom: 3,
+    borderBottom: "2px solid black",
+  },
+  subSection: {
+    marginBottom: 5,
+  },
+  companyHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  boldText: {
+    fontWeight: 1000,
+    fontSize: 13,
+    fontStyle: "bold",
+  },
+  companyYear: {
+    fontStyle: "italic",
+    color: "red",
+  },
+  skillList: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 5,
+    justifyContent: "space-between",
   },
 });
 
@@ -35,70 +66,108 @@ function MyDocument({ data }) {
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.heading}>
-          <Text style={styles.name}>{personalData?.name || "Your Name"}</Text>
+          <Text style={styles.name}>
+            {personalData?.firstName || "First Name"}{" "}
+            {personalData?.lastName || "Last Name"}
+          </Text>
           <Text>{personalData?.role || "Description"}</Text>
           <Text>
             {personalData?.email || "Email"} | {personalData?.phone || "Phone"}{" "}
             | {personalData?.linkedin || "LinkedIn"}
           </Text>
         </View>
+
         <View style={styles.section}>
-          <Text>WORK EXPERIENCE</Text>
+          <Text style={styles.sectionHeader}>WORK EXPERIENCE</Text>
           {experienceData.map((experience, index) => (
-            <View key={index}>
-              <Text>
-                {experience.data?.company || "Company Name"}
-                <Text>
-                  {experience.data?.["start-date"] || "Start Date"} -{" "}
-                  {experience.data?.["end-date"] || "End Date"}{" "}
+            <View key={index} style={styles.subSection}>
+              <View style={styles.companyHeader}>
+                <Text style={styles.companyName}>
+                  {experience.data?.company || "Company Name"}
                 </Text>
-              </Text>
+                <Text>
+                  {experience.data?.["startDate"] || "Start Date"} -{" "}
+                  {experience.data?.["endDate"] || "End Date"}{" "}
+                </Text>
+              </View>
               <Text>{experience.data?.position || "Position"} </Text>
-              <Text>{experience.data?.duties || "Responsibilities"} </Text>
+              <View>
+                {experience.data?.duties ? (
+                  experience.data?.duties
+                    .split("\n")
+                    .map((duty, index) => <Text key={index}> - {duty}</Text>)
+                ) : (
+                  <Text>Responsibilities</Text>
+                )}
+              </View>
             </View>
           ))}
         </View>
+
         <View style={styles.section}>
-          <Text>EDUCATION</Text>
+          <Text style={styles.sectionHeader}>EDUCATION</Text>
           {educationData.map((education, index) => (
             <View key={index}>
-              <Text>
-                {education.data?.school || "School Name"}
+              <View style={styles.companyHeader}>
+                <Text>{education.data?.school || "School Name"}</Text>
                 <Text>{education.data?.graduation || "Graduation Year"}</Text>
-              </Text>
-              <Text>{education.data?.course || "Course"} </Text>
-              <Text>{education.data?.degree || "Degree Class"} </Text>
+              </View>
+              <Text>{education.data?.course || "B.Sc. Course"} </Text>
+              <View>
+                {education.data?.details ? (
+                  education.data?.details
+                    .split("\n")
+                    .map((detail, index) => (
+                      <Text key={index}> - {detail}</Text>
+                    ))
+                ) : (
+                  <Text>Details</Text>
+                )}
+              </View>
             </View>
           ))}
         </View>
+
         <View style={styles.section}>
-          <Text>PROJECTS</Text>
+          <Text style={styles.sectionHeader}>PROJECTS</Text>
           {projectData.map((project, index) => (
             <View key={index}>
-              <Text>
-                {project.data?.name || "Project Name"}
-                {project.data?.completion || "Completion Date"}
-              </Text>
-              <Text>{project.data?.details || "Project Details"}</Text>
+              <View style={styles.companyHeader}>
+                <Text>{project.data?.name || "Project Name"}</Text>
+                <Text>{project.data?.completion || "Completion Date"}</Text>
+              </View>
+              <View>
+                {project.data?.details ? (
+                  project.data?.details
+                    .split("\n")
+                    .map((detail, index) => (
+                      <Text key={index}> - {detail}</Text>
+                    ))
+                ) : (
+                  <Text>Details</Text>
+                )}
+              </View>
             </View>
           ))}
         </View>
+
         <View style={styles.section}>
-          <Text>SKILLS</Text>
-          {skillData.map((skill, index) => (
-            <View key={index}>
-              <Text>{skill.data?.skill || "Skill"}</Text>
-            </View>
-          ))}
+          <Text style={styles.sectionHeader}>SKILLS</Text>
+          <View style={styles.skillList}>
+            {skillData.map((skill, index) => (
+              <View key={index}>
+                <Text>{skill.data?.skill || "Skill"}</Text>
+              </View>
+            ))}
+          </View>
         </View>
+
         <View style={styles.section}>
-          <Text>ACHIEVEMENTS</Text>
+          <Text style={styles.sectionHeader}>ACHIEVEMENTS</Text>
           {achievementData.map((achievement, index) => (
-            <View key={index}>
-              <Text>
-                {achievement.data?.name || "Name"}
-                {achievement.data?.date || "Date"}
-              </Text>
+            <View key={index} style={styles.companyHeader}>
+              <Text>{achievement.data?.name || "Name"}</Text>
+              <Text>{achievement.data?.date || "Date"}</Text>
             </View>
           ))}
         </View>
