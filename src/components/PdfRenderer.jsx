@@ -107,7 +107,7 @@ function MyDocument({ data }) {
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>EDUCATION</Text>
           {educationData.map((education, index) => (
-            <View key={index}>
+            <View key={index} style={styles.subSection}>
               <View style={styles.companyHeader}>
                 <Text>{education.data?.school || "School Name"}</Text>
                 <Text>{education.data?.graduation || "Graduation Year"}</Text>
@@ -131,7 +131,7 @@ function MyDocument({ data }) {
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>PROJECTS</Text>
           {projectData.map((project, index) => (
-            <View key={index}>
+            <View key={index} style={styles.subSection}>
               <View style={styles.companyHeader}>
                 <Text>{project.data?.name || "Project Name"}</Text>
                 <Text>{project.data?.completion || "Completion Date"}</Text>
@@ -165,7 +165,7 @@ function MyDocument({ data }) {
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>ACHIEVEMENTS</Text>
           {achievementData.map((achievement, index) => (
-            <View key={index} style={styles.companyHeader}>
+            <View key={index} style={(styles.companyHeader, styles.subSection)}>
               <Text>{achievement.data?.name || "Name"}</Text>
               <Text>{achievement.data?.date || "Date"}</Text>
             </View>
