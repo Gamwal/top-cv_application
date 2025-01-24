@@ -165,9 +165,11 @@ function MyDocument({ data }) {
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>ACHIEVEMENTS</Text>
           {achievementData.map((achievement, index) => (
-            <View key={index} style={(styles.companyHeader, styles.subSection)}>
-              <Text>{achievement.data?.name || "Name"}</Text>
-              <Text>{achievement.data?.date || "Date"}</Text>
+            <View key={index} style={styles.subSection}>
+              <View style={styles.companyHeader}>
+                <Text>{achievement.data?.name || "Name"}</Text>
+                <Text>{achievement.data?.date || "Date"}</Text>
+              </View>
             </View>
           ))}
         </View>
