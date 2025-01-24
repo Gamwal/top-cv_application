@@ -38,8 +38,6 @@ function CVBuilder() {
     });
   }
 
-  function handleDownload() {}
-
   return (
     <StrictMode>
       <h1>CV Builder</h1>
@@ -92,13 +90,6 @@ function CVBuilder() {
                 onClick={handleUpdate}
               >
                 Update
-              </button>
-              <button
-                type="button"
-                className="download-button"
-                onClick={handleDownload}
-              >
-                Download
               </button>
             </div>
           </form>
